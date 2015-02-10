@@ -15,21 +15,27 @@ public class Exam12 {
 		 * 양 : 69~60
 		 * 가 : 60미만
 		 */
+		String hakjum="";
 		if(avg >=90)
-			System.out.println("수");
+			hakjum="수";
 		else if(avg >=80)
-			System.out.println("우");
+			hakjum="우";
 		else if(avg >=70)
-			System.out.println("미");
+			hakjum="미";
 		else if(avg >=60)
-			System.out.println("양");
+			hakjum="양";
 		else
-			System.out.println("가");
-		//----------------------------
+			hakjum="가";
 		
-		int k,e,m;
-		k=70;
+		if(avg>100){
+			System.out.println("평균은 100점 만점입니다.");
+		}else{
+			System.out.println(name+"의학점:"+hakjum);
+		}
 		
+		int k=0,e=0,m=0;
+		k=88;
+		System.out.println(k);
 	}
 
 }
