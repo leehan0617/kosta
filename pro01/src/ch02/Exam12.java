@@ -25,6 +25,10 @@ public class Exam12 {
 			System.out.println("¾ç");
 		else
 			System.out.println("°¡");
+		//----------------------------
+		
+		int k,e,m;
+		k=70;
 		
 	}
 
