@@ -1,0 +1,24 @@
+package ch01;
+
+public class Exam03 {
+	public static void main(String[] args){
+		int x=10;
+		++x; //11 ++x(전위형연산자)
+		x++; //12 x++(후위형연산자)
+		System.out.println(x);
+		
+		--x; //11
+		x--; //10
+		System.out.println(x);
+		
+		int a=10;
+		int b=20;
+		int c=a++ + ++b;
+		System.out.println(c);
+		System.out.println(a);
+		
+		int d=30;
+		System.out.println(++d);
+		
+	}
+}
