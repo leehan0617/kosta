@@ -34,7 +34,7 @@ public class Exam12 {
 			System.out.println("Æò±Õ:"+(int)(avg*10+0.5)/10.0 + " ÇÐÁ¡:" + hakjum);
 		}
 		
-		int k=0,e=0,m=0;
+		int k=0;
 		k=88;
 		System.out.println(k);
 	}
