@@ -30,7 +30,8 @@ public class Exam12 {
 		if(avg>100){
 			System.out.println("평균은 100점 만점입니다.");
 		}else{
-			System.out.println(name+"의학점:"+hakjum);
+			System.out.println("이름:"+name);
+			System.out.println("평균:"+(int)(avg*10+0.5)/10.0 + " 학점:" + hakjum);
 		}
 		
 		int k=0,e=0,m=0;
