@@ -5,7 +5,7 @@ public class Exam10 {
 		int x=10;
 		
 		if(x>10) 
-			System.out.println("10보다 큰수 입력");
+			System.out.println("10보다 큰수입력:");
 		System.out.println("hahaha");
 		
 	}
