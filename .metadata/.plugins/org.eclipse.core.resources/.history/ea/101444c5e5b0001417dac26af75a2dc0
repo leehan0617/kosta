@@ -1,0 +1,11 @@
+package ch02;
+
+public class Ex10 {
+	public static void main(String[] args) {
+		int x=10;
+		
+		if(x>10) System.out.println("10보다 큰수 입력");
+		else System.out.println("rw");
+		
+	}
+}

@@ -1,0 +1,31 @@
+package ch02;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Exam24 {
+	public static void main(String[] args) throws IOException {
+		int dan,x;
+		char loop;
+		
+		Scanner scan = new Scanner(System.in);
+		
+		do{
+			System.out.println("단을 입력하세요.");
+			dan = scan.nextInt();
+			
+			for(int i=2;i<10;i++){
+				for(int j=1;j<10;j++){
+					System.out.println(i+"*"+j+"="+(i*j));
+				}
+				System.out.println();
+			}
+			System.out.println("더할래(y/n)?");
+			loop =(char)System.in.read();
+			System.in.read();
+			System.in.read();
+		}while(loop == 'Y' || loop =='y');
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+package ch02;
+
+import java.io.IOException;
+
+public class Exam21 {
+	public static void main(String[] args){
+		int a;
+		try {
+			a=System.in.read();
+		} catch (IOException e) {
+			// TODO: handle exception
+		}
+		System.out.println(a);
+	}
+
+}

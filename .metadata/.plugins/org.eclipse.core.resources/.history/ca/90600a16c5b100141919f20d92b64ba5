@@ -1,0 +1,19 @@
+package quiz02;
+
+import java.io.IOException;
+
+/*
+ * 영문자 하나를 입력 받아서 대소문자로 변환하세요.
+ */
+public class quiz8 {
+	public static void main(String[] args) throws IOException {
+//		char ch =' ';
+//		System.out.print("input character:");
+//		ch=(char)System.in.read();
+//		
+// A = 65 Z=90 a =97 z=112
+		char ch =112;
+		System.out.println(ch);
+	}
+
+}

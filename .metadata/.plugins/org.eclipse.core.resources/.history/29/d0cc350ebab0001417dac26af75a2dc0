@@ -1,0 +1,16 @@
+package ch01;
+
+public class Exam04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		byte a=10;
+		short b=a; 		//에러는 아니지만 기억공간 낭비
+		System.out.println("b:" + b + " a:" + a);
+		
+		short c=20;
+		short d=c;
+
+	}
+
+}

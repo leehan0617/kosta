@@ -1,0 +1,24 @@
+package quiz02;
+
+/*
+ * . 다음과 같이 출력하세요. (for문)
+	[출력화면]
+1
+12
+123
+1234
+12345
+
+ */
+public class quiz17 {
+	public static void main(String[] args) {
+		String str="";
+		for(int i =1;i<=5;i++){
+			for(int j=1;j<=i;j++){
+				System.out.print(str+j);
+			}
+			System.out.println();
+		}
+		
+	}
+}

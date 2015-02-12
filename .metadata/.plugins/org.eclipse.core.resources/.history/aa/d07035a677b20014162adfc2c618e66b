@@ -1,0 +1,32 @@
+package ch03;
+
+import java.util.Scanner;
+
+public class Ex31 {
+	public static void main(String[] args) {
+		//임의의수를 입력해서 가장 큰값과 가장 작은값 출력
+		Scanner scan=new Scanner(System.in);
+		int[] array=new int[5];
+		int maxValue,minValue;
+		
+		for(int i=0;i<array.length;i++){
+			System.out.print("수를 입력하세요:");
+			array[i]=scan.nextInt();
+		}
+		
+		maxValue=array[0]; minValue=array[0];
+		
+		for(int i=0;i<array.length;i++){
+			if(maxValue<array[i]){
+				maxValue=array[i];
+			}
+			if(minValue>array[i]){
+				minValue=array[i];
+			}
+		}
+		System.out.println("maxValue:"+maxValue+" minValue:"+minValue);
+		
+		scan.close();
+	}
+
+}

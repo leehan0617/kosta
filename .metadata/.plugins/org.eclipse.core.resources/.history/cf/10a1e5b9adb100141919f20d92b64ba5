@@ -1,0 +1,29 @@
+package ch02;
+
+public class Exam20 {
+	public static void main(String[] args) {
+		int x=1;
+		while(x<=10){
+			System.out.println("x:"+x+"\t");
+			x++;
+		}
+		System.out.println();
+		
+		int y=1;
+		do{
+			System.out.println("y:"+y);
+			y++;
+		}while(y<=10);
+		System.out.println();
+		
+		int z=10;
+		while(z>50){
+			System.out.println("while z:"+z);
+		}
+		
+		do{
+			System.out.println("do z:"+z);
+		}while(z>50);
+	}
+
+}

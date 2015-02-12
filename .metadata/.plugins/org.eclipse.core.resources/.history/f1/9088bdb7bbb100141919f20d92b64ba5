@@ -1,0 +1,33 @@
+package quiz02;
+
+import java.util.Scanner;
+
+/*숫자 하나를 입력 받아 그 수가 1이면 "남성",2이면 "여성" 이라는 
+ * 글자를 출력하는 프로그램을 작성하세요.
+ */
+
+public class quiz1 {
+	public static void main(String[] args) {
+		int input; //숫자를 입력받는다 1(남자) or 2(여자)
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("숫자를 입력하세요.");
+		input = scan.nextInt();
+		
+		switch(input){
+		case 1:
+			System.out.println("남성");
+			break;
+		case 2:
+			System.out.println("여성");
+			break;
+		default:
+			System.out.println("Error");
+		}
+		
+		scan.close();
+		
+		
+	}
+
+}

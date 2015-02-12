@@ -1,0 +1,11 @@
+package ch01;
+
+public class Exam01 {
+	public static void main(String[] args){
+		System.out.println("Hello Java");
+		System.out.println("How are you");
+		System.out.println("ha ha ha");
+		System.out.println();
+		System.out.println("정수형 자료형");
+	}
+}

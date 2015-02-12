@@ -1,0 +1,13 @@
+package ch02;
+
+public class Exam12 {
+	public static void main(String[] args) {
+		String name="ȫ�浿";
+		int kor=70;
+		int eng=88;
+		int mat=99;
+		int tot=kor+eng+mat;
+		float avg=(float)tot/3;
+	}
+
+}

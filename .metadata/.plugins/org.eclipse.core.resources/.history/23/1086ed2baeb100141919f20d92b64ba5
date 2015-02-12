@@ -1,0 +1,15 @@
+package ch02;
+
+import java.util.Scanner;
+
+public class Exam21 {
+	public static void main(String[] args) {
+		int x;
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("input:");
+		x=scan.nextInt();
+		System.out.println(x);
+	}
+
+}

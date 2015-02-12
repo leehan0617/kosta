@@ -1,0 +1,23 @@
+package ch02;
+
+import java.util.Scanner;
+
+public class Exam22 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("input String:");
+		String str="";
+		str=scan.next();
+		System.out.println("str:"+str);
+		
+		System.out.println("input String:");
+		int x=0;
+		x=scan.nextInt();
+		System.out.println("x:"+x);
+		
+		
+		scan.close();
+	}
+
+}

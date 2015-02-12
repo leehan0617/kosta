@@ -1,0 +1,15 @@
+package ch03;
+
+import java.util.Scanner;
+
+public class Ex31 {
+	public static void main(String[] args) {
+		//임의의수를 입력해서 가장 큰값과 가장 작은값 출력
+		Scanner scan=new Scanner(System.in);
+		int input=0;
+		int[] array=new array[input];
+		
+		scan.close();
+	}
+
+}

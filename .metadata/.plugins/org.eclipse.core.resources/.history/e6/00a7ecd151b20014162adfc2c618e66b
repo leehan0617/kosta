@@ -1,0 +1,34 @@
+package quiz02;
+
+/*
+ * 다음과 같이 출력하세요. (for문, while문 이용하여 2가지 프로그램 하시오.)
+[출력화면]
+*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+**********
+***********
+*/
+public class quiz16 {
+	public static void main(String[] args) {
+		for(int i=1;i<=11;i++){
+			for(int j=1;j<=i;j++){
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		int temp1=1;
+		int temp2=1;
+		while(temp1<=11){
+			System.out.print("*");
+			temp1 ++;
+		}
+	}
+
+}

@@ -1,0 +1,21 @@
+package ch02;
+
+import java.io.IOException;
+
+public class Exam23 {
+	public static void main(String[] args) throws IOException {
+		char ch1;
+		
+		do{
+			System.out.println("Hello Java");
+			System.out.print("°è¼Ó(y/n)?");
+			
+			ch1=(char)System.in.read();
+			System.in.read();
+			System.in.read();
+		}while(ch1=='Y' || ch1=='y');
+		
+		System.out.println("End");
+	}
+
+}

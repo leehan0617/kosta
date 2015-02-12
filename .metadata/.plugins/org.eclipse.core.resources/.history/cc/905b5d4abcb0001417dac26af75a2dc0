@@ -1,0 +1,15 @@
+package ch01;
+
+public class Exam05 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int kor=88;
+		int eng=94;
+		int mat=87;
+		int tot=kor+eng+mat;
+		float avg=(float)tot/3;
+
+	}
+
+}

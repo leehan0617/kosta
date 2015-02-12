@@ -1,0 +1,37 @@
+package quiz02;
+
+import java.util.Scanner;
+
+/*
+ * 세 정수를 입력 받아 10이하의 수만을 더하여
+ * 출력하는 프로그램을 작성하시오.
+ */
+public class quiz7 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int input1,input2,input3;
+		int sum=0;
+		
+		System.out.print("input number1:");
+		input1 = scan.nextInt();
+		System.out.print("input number2:");
+		input2 = scan.nextInt();
+		System.out.print("input number3");
+		input3 = scan.nextInt();
+		
+		if(input1<=10){
+			sum = sum+input1;
+		}
+		if(input2<=10){
+			sum = sum+input2;
+		}
+		if(input3<=10){
+			sum = sum+input3;
+		}
+		
+		System.out.println("sum:"+sum0);
+		scan.close();
+		
+	}
+
+}
