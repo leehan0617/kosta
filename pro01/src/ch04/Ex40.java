@@ -17,6 +17,21 @@ public class Ex40 {
 		System.out.print("mat");
 		mat=scan.nextInt();
 		
+		System.out.println("name:"+name);
+		total(kor,eng,mat);
+		average(kor,eng,mat);
+		scan.close();
+		
+	}
+	
+	public static void total(int kor,int eng,int mat){
+		int tot=kor+eng+mat;
+		System.out.println("tot:"+tot);
+	}
+	
+	public static void average(int kor,int eng,int mat){
+		float avg=(float)(kor+eng+mat)/3;
+		System.out.println("avg:"+avg);
 	}
 
 }
