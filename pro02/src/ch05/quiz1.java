@@ -1,13 +1,15 @@
 package ch05;
 
 class SungJukA{
+	private String name;
 	private int kor;
 	private int eng;
 	private int mat;
 	private int total;
 	private float avg;
 	
-	public SungJukA(int kor,int eng,int mat){
+	public SungJukA(String name,int kor,int eng,int mat){
+		this.name=name;
 		this.kor=kor;
 		this.eng=eng;
 		this.mat=mat;
@@ -22,14 +24,14 @@ class SungJukA{
 	}
 	
 	public void display(){
-		System.out.println("국어:" + kor + " 영어:" + eng + " 수학:" + mat);
+		System.out.println("이름:"+ name + " 국어:" + kor + " 영어:" + eng + " 수학:" + mat);
 		System.out.println("총점:" + total);
 		System.out.println("평균:" + avg);
 	}
 }
 public class quiz1 {
 	public static void main(String[] args) {
-		SungJukA s=new SungJukA(70,80,90);
+		SungJukA s=new SungJukA("홍길동",70,80,90);
 		s.total();
 		s.avgerage();
 		s.display();
