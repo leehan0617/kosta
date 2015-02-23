@@ -63,7 +63,7 @@ public class quiz07 {
 		}
 		
 		Answer.title();
-		
+
 		for(int i=0;i<a.length;i++){
 			a[i].calJumsu();
 			a[i].display();
