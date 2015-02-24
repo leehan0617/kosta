@@ -10,6 +10,8 @@ public class Ex68 {
 		int x=10;
 //		static int value=30; error
 		final int su=24;
+		
+		System.out.println(x+""+su);
 	}
 	
 	public void aa(){
