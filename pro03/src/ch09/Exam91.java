@@ -1,4 +1,4 @@
-package ch08;
+package ch09;
 
 /*
  * java.lang.Object
@@ -10,5 +10,7 @@ package ch08;
  * 			clone,finalize,getClass
  */
 public class Exam91 {
-
+	public static void main(String[] args) {
+		
+	}
 }
