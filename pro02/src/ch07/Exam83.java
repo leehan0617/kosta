@@ -16,7 +16,7 @@ class II{
 
 public class Exam83 {
 	public static void main(String[] args) {
-		final int x=10;
+		int x=10;
 		
 		II f=new II(){
 			//함수 재정의
