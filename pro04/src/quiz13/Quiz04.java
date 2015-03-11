@@ -18,7 +18,7 @@ package quiz13;
 class Printer{
 	private static int counter=0;
 	
-	public int usePrint(){
+	public synchronized int usePrint(){
 		counter++;
 		return counter;
 	}
@@ -33,7 +33,7 @@ class PC extends Thread{
 		this.name=name;
 	}
 	
-	public synchronized void run(){
+	public void run(){
 		for(int i=0;i<3;i++){
 			try{
 				System.out.println(name+" 컴퓨터프린터"+printer.usePrint()+"사용");

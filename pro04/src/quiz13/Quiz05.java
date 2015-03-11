@@ -1,122 +1,76 @@
 package quiz13;
 
-class Bank{
-	private int money;
+class Bank{													
+	private int balance;
 	
-	public Bank(int money){
-		this.money=money;
-		System.out.println("계좌가 만들어졌습니다. 잔액:"+money);
-	}
-
-	public int getMoney() {
-		return money;
-	}
-	public void setMoney(int money) {
-		this.money = money;
+	public Bank(int balance){
+		this.balance=balance;
+		System.out.println("계좌가 만들어졌습니다:" + this.balance);
 	}
 	
-}
-
-class InMoney extends Thread{
-	private int money;
-	private Bank bank;
+	public synchronized void addBank(int money){					
+		super.notify();
+		balance += money;
+	}	
 	
-	public InMoney(Bank bank,int money){
-		this.bank=bank;
-		this.money=money;
-	}
-	
-	public Bank getBank() {
-		return bank;
-	}
-
-	public void setBank(Bank bank) {
-		this.bank = bank;
-	}
-
-	public int getMoney() {
-		return money;
-	}
-
-	public void setMoney(int money) {
-		this.money = money;
-	}
-	
-	public synchronized int income(){
-		int result;
-		result=bank.getMoney()+money;
-		super.notifyAll();
-		return result;
-	}
-	public synchronized void run(){
-		System.out.println("입금["+money+"] : 잔액 ["+income()+"]");
-		bank.setMoney(income());
-	}
-}
-
-class OutMoney extends Thread{
-	private int money;
-	private Bank bank;
-	
-	public OutMoney(Bank bank,int money) {
-		this.bank=bank;
-		this.money=money;
-	}
-	
-	public Bank getBank() {
-		return bank;
-	}
-
-	public void setBank(Bank bank) {
-		this.bank = bank;
-	}
-
-	public int getMoney() {
-		return money;
-	}
-
-	public void setMoney(int money) {
-		this.money = money;
-	}
-	public synchronized int withdraw(){
-		int result;
-		result=bank.getMoney()-money;
-		if(result<0){
+	public synchronized void minusBank(int money){
+		while(balance < money){
 			try {
-				super.wait();
+				System.out.println("잔액이 부족하여 우선 대기중");
+				super.wait();			
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		return result;
-	}
-	public void run(){
-		System.out.println("출금["+money+"] : 잔액 ["+withdraw()+"]");
-		bank.setMoney(withdraw());
+		balance -= money;
 	}
 	
+	public int getBalance(){											
+		return balance;
+	}
 }
 
-public class Quiz05{
+class InMoeny extends Thread{				
+	private int money;
+	private Bank bank;	
+	
+	public InMoeny(Bank Bank, int money){
+		this.bank=Bank;
+		this.money=money;
+	}	
+	public void run(){
+		bank.addBank(money);
+		System.out.println("입금[" + money + "] : 잔액 ["+ bank.getBalance() + "]");
+	}
+}
+
+class OutMoeny extends Thread{			
+	private int money;
+	private Bank bank;	
+	public OutMoeny(Bank bank, int money){
+		this.bank=bank;
+		this.money=money;
+	}	
+	public void run(){
+		bank.minusBank(money);
+		System.out.println("출금["+ money + "] :  잔액 ["+ bank.getBalance() + "]");
+	}
+}
+
+public class Quiz05 {
 	public static void main(String[] args) throws InterruptedException {
 		Bank bank=new Bank(1000);
 		
-		new InMoney(bank,10).start();
+		new InMoeny(bank,10).start();
 		Thread.sleep(1000);
 		
-		new OutMoney(bank,1600).start();
+		new OutMoeny(bank,100).start();
 		Thread.sleep(1000);
 		
-		new InMoney(bank,500).start();
+		new InMoeny(bank,50).start();
 		Thread.sleep(1000);
 		
-		new OutMoney(bank,70).start();
-		Thread.sleep(1000);
-		
-		new InMoney(bank,700).start();
-		Thread.sleep(1000);
-		
-		new OutMoney(bank,500).start();
+		new OutMoeny(bank,900).start();
 		Thread.sleep(1000);
 	}
 }
