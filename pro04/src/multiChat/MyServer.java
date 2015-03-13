@@ -1,4 +1,4 @@
-package chat;
+package multiChat;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -9,20 +9,19 @@ public class MyServer {
 		ServerSocket serverSocket=null;
 		
 		try{
-			serverSocket=new ServerSocket(8823);
-			System.out.println("서버 채팅 준비중...");
+			serverSocket=new ServerSocket(7878);
+			System.out.println("서버작동중");
 			
-			Socket socket=serverSocket.accept();
-			
-			SReciver r=new SReciver(socket);
-			SSender s=new SSender(socket);
-			r.start();
-			s.start();
+			while(true){
+				Socket socket=serverSocket.accept();
+				ServerArray array=new ServerArray(socket);
+				array.start();
+			}
 		}catch(IOException e){
 			e.printStackTrace();
 		}finally{
 			try{
-				serverSocket.close();
+				if(serverSocket!=null)serverSocket.close();
 			}catch(Exception e){
 				e.printStackTrace();
 			}
