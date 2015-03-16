@@ -22,14 +22,16 @@ public class CReciver extends Thread{
 			
 			while(true){
 				String inputMsg=br.readLine();
-				if(inputMsg.equalsIgnoreCase("Q")) break;
+				if(inputMsg.equalsIgnoreCase("Q")){
+				break;
+				}
 				System.out.println(inputMsg);
 			}
 		}catch(IOException e){
 			e.printStackTrace();
 		}finally{
 			try{
-				if(socket!=null) socket.close();
+				if(socket!=null)socket.close();
 				if(br!=null)br.close();
 				if(isr!=null)isr.close();
 			}catch(Exception e){

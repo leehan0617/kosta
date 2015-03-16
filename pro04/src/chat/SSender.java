@@ -1,5 +1,6 @@
 package chat;
 
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -13,7 +14,7 @@ public class SSender extends Thread{
 	public SSender(Socket socket){
 		this.socket=socket;
 	}
-	
+
 	@Override
 	public void run(){
 		OutputStreamWriter osw=null;

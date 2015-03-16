@@ -1,5 +1,6 @@
 package chat;
 
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -18,7 +19,7 @@ public class CSender extends Thread{
 		
 		System.out.println("채팅시작");
 	}
-	
+
 	@Override
 	public void run(){
 		OutputStreamWriter osw=null;

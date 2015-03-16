@@ -57,7 +57,10 @@ public class ServerArray extends Thread {
 			while(true){
 				String inputMsg=br.readLine();
 				if(inputMsg.equalsIgnoreCase("Q")){
-					sendPrint(inputMsg); break;
+					pw.println(inputMsg); 
+					pw.flush();
+					list.remove(pw);
+					break;
 				}
 				sendPrint(id+">>"+inputMsg);
 			}
@@ -65,7 +68,6 @@ public class ServerArray extends Thread {
 			e.printStackTrace();
 		}finally{
 			sendPrint("#"+id+"님이 퇴장하였습니다.");
-			list.remove(pw);
 			try{
 				if(socket!=null)socket.close();
 				if(pw!=null)pw.close();

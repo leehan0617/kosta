@@ -1,4 +1,4 @@
-package chat;
+package chat2;
 
 
 import java.io.IOException;
@@ -14,10 +14,9 @@ public class MyClient {
 		
 		try{
 			Socket socket=new Socket("192.168.7.208",8823);
-			CSender s=new CSender(socket,args[0]);
-			CReciver r=new CReciver(socket);
-			s.start();
-			r.start();
+			ClientMsg cm=new ClientMsg(socket, args[0]);
+			cm.start();
+			cm.sendMsg();
 		}catch(UnknownHostException e){
 			e.printStackTrace();
 		}catch(IOException e){
