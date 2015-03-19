@@ -3,9 +3,11 @@ package sungjuk;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import dbUnit.*;
+import dbUnit.ConnectionProvider;
+import dbUnit.JdbcUtil;
 
 public class SungjukDao {
 	Scanner scan=null;
@@ -76,34 +78,52 @@ public class SungjukDao {
 	public void printSingleSungjuk() {
 		conn=ConnectionProvider.getConnection();
 		scan=new Scanner(System.in);
-		SungjukDto sjd=null;
-		
 		try{
+			
+			System.out.print("학번쓰세요:");
 			sjd=new SungjukDto();
-			System.out.print("학번 입력:");
 			sjd.setHakbun(scan.nextInt());
 			
 			sql="select * from mysungjuk where hakbun=?";
 			pstmt=conn.prepareStatement(sql);
+			
 			pstmt.setInt(1, sjd.getHakbun());
-			pstmt.executeQuery();
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				sjd.setName(rs.getString("name"));
+				sjd.setKor(rs.getInt("kor"));
+				sjd.setEng(rs.getInt("eng"));
+				sjd.setMat(rs.getInt("mat"));
+				sjd.setTot(rs.getInt("tot"));
+				sjd.setAvg(rs.getFloat("avg"));
+				System.out.println(sjd.getHakbun()+"\t"+sjd.getName()+"\t"+sjd.getKor()+"\t"+sjd.getEng()+"\t"+sjd.getMat()+"\t"+sjd.getTot()+"\t"+sjd.getAvg());
+			}else{
+				System.out.println("학번이 존재하지 않습니다.");
+			}
 			
 		}catch(Exception e){
-			System.out.println("1번 에러");
+			System.out.println("2번 에러");
 			e.printStackTrace();
 		}finally{
 			JdbcUtil.close(pstmt);
 			JdbcUtil.close(conn);
 		}
 	}
-
-	public void bestWorstPrint() {
+	
+	public void totalScoreAndAvg() {
 		conn=ConnectionProvider.getConnection();
-		scan=new Scanner(System.in);
 		try{
+			sql="select sum(tot) sa,round(avg(avg),1) aver from mysungjuk";
 			
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				System.out.println("반총점:"+rs.getInt("sa")+"반평균:"+rs.getFloat("aver"));
+			}
 		}catch(Exception e){
-			System.out.println("1번 에러");
+			System.out.println("3번 에러");
 			e.printStackTrace();
 		}finally{
 			JdbcUtil.close(pstmt);
@@ -113,11 +133,33 @@ public class SungjukDao {
 
 	public void printAllSungjuk() {
 		conn=ConnectionProvider.getConnection();
-		scan=new Scanner(System.in);
+		ArrayList<SungjukDto> list=new ArrayList<SungjukDto>();
+		
 		try{
+			sql="select * from mysungjuk order by tot desc";
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				sjd=new SungjukDto();
+				sjd.setHakbun(rs.getInt("hakbun"));
+				sjd.setName(rs.getString("name"));
+				sjd.setKor(rs.getInt("kor"));
+				sjd.setEng(rs.getInt("eng"));
+				sjd.setMat(rs.getInt("mat"));
+				sjd.setTot(rs.getInt("tot"));
+				sjd.setAvg(rs.getFloat("avg"));
+				
+				list.add(sjd);
+			}
+			
+			for(int i=0;i<list.size();i++){
+				sjd=list.get(i);
+				System.out.println(sjd.getHakbun()+"\t"+sjd.getName()+"\t"+sjd.getKor()+"\t"+sjd.getEng()+"\t"+sjd.getMat()+"\t"+sjd.getTot()+"\t"+sjd.getAvg());
+			}
 			
 		}catch(Exception e){
-			System.out.println("1번 에러");
+			System.out.println("4번 에러");
 			e.printStackTrace();
 		}finally{
 			JdbcUtil.close(pstmt);
@@ -125,17 +167,40 @@ public class SungjukDao {
 		}
 	}
 
-	public void totalScoreAndAvg() {
+	public void bestWorstPrint() {
 		conn=ConnectionProvider.getConnection();
-		scan=new Scanner(System.in);
+		sjd=new SungjukDto();
+		ArrayList<String> list=new ArrayList<String>();
+		
 		try{
+			sql="select name from mysungjuk order by tot desc";
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				String input=rs.getString("name");
+				list.add(input);
+			}
+			
+			for(int i=0;i<list.size();i++){
+				if(i==0){
+					sjd.setName(list.get(i));
+					System.out.println("일등:"+sjd.getName());
+					
+				}
+				if(i==list.size()-1){
+					sjd.setName(list.get(i));
+					System.out.println("꼴등:"+sjd.getName());
+				}
+			}
 			
 		}catch(Exception e){
-			System.out.println("1번 에러");
+			System.out.println("5번 에러");
 			e.printStackTrace();
 		}finally{
 			JdbcUtil.close(pstmt);
 			JdbcUtil.close(conn);
 		}
 	}
+
 }
