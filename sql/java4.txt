@@ -1,0 +1,29 @@
+select * from score;
+
+alter table score add constraint score_pk primary key(no);
+
+select * from score order by no;
+
+insert into score(no,name) values(10,'kim');
+
+create table sungjuk(
+  num number(3) not null,
+  name varchar2(10) not null,
+  kor number(3) not null,
+  eng number(3) not null,
+  mat number(3) not null,
+  tot number(4) default 0,
+  aver number(4,1) default 0.0
+);
+
+insert into sungjuk(num,name,kor,eng,mat) values(1,'Lee',70,70,70);
+insert into sungjuk(num,name,kor,eng,mat) values(2,'Park',50,60,80);
+insert into sungjuk(num,name,kor,eng,mat) values(3,'Kim',20,10,90);
+
+--delete : 레코드 삭제 Delete from 테이블명 where 조건
+delete from sungjuk where num=1;
+select * from sungjuk;
+
+--update : 레코드 수정 update 테이블명 set 컬럼명=변경할값 where 조건절;
+update sungjuk set tot=eng+kor+mat;
+update sungjuk set aver=tot/3;

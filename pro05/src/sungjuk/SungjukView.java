@@ -16,23 +16,18 @@ public class SungjukView {
 			switch(input){
 				case 1:
 					sjd.inputSungjuk();
-					System.out.println("test1");
 					break;
 				case 2:
 					sjd.printSingleSungjuk();
-					System.out.println("test2");
 					break;
 				case 3:
 					sjd.totalScoreAndAvg();
-					System.out.println("test3");
 					break;
 				case 4:
 					sjd.printAllSungjuk();
-					System.out.println("test4");
 					break;
 				case 5:
 					sjd.bestWorstPrint();
-					System.out.println("test5");
 					break;
 				case 6:
 					System.out.println("종료합니다.");
