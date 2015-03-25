@@ -16,7 +16,7 @@ public class Exam14 {
 		
 		Container con=r.getContentPane();
 		con.setLayout(null);
-		
+			
 		JButton b=new JButton("apple");
 		b.setSize(100,50);
 		b.setLocation(10,10);
