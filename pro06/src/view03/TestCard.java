@@ -21,23 +21,24 @@ class CardT extends JFrame{
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	public void cardTest(){
-		mainPanel=new JPanel();
+		mainPanel=new JPanel(); //부모패널
 		
-		JPanel first=new JPanel();
+		JPanel first=new JPanel(); //자식패널1
 		first.setBackground(Color.BLUE);
 		JButton firstBtn=new JButton("firstBtn");
 		
 		firstBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CardLayout c1=(CardLayout)mainPanel.getLayout();
-				c1.show(mainPanel, "마지막");
+				c1.show(mainPanel, "두번째");
+				
 				System.out.println("firstBtn test");
 			}
 		});
 		
 		first.add(firstBtn);
 		
-		JPanel second=new JPanel();
+		JPanel second=new JPanel(); //자식패널2
 		second.setBackground(Color.YELLOW);
 		JButton secondBtn=new JButton("secondBtn");
 		
@@ -52,7 +53,7 @@ class CardT extends JFrame{
 		
 		mainPanel.setLayout(new CardLayout());
 		mainPanel.add(first,"처음");
-		mainPanel.add(second,"마지막");
+		mainPanel.add(second,"두번째");
 	}
 }
 public class TestCard {
